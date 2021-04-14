@@ -69,7 +69,14 @@ tccli cvm DescribeInstances --cli-input-json file:///home/test.json
 >- `--cli-input-json` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34011#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
 >- `--cli-input-json` 命令需`3.0.250.2`版本及以上。
 
-
+CVM查看镜像列表示范
+```bash
+tccli cvm DescribeImages --cli-unfold-argument --region ap-shanghai --Offset 0 --Limit 41 --filter 'ImageSet[*].{name:ImageName, id:ImageName}'
+```
+>! --Offset 0 --Limit 41 代表输出第0个镜像到第41个镜像
+>! 截至2021年4月14日 腾讯云提供了41个公共镜像
+>! 如果您想查询除公共镜像以外的数据 可以使用--Offset 41 --Limit 100参数
+>! --filter 参数对输出结果进行筛选 此次只列出了ImageName和ImageName字段的信息
 
 ## 更多命令
 - `tccli help`
